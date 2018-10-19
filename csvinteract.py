@@ -21,7 +21,6 @@ def parse_cell(content: str):
             content = float(content)
         except TypeError as e:
             raise ConversionError from e
-        print(content)
         if int(content) == content:
             return content
         return content

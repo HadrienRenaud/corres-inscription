@@ -1,17 +1,16 @@
 {
-  "name": "tfjm-inscription",
-  "scripts": {
-  },
-  "env": {
-  },
-  "formation": {
-  },
-  "addons": [
-
-  ],
-  "buildpacks": [
-    {
-      "url": "heroku/python"
+  "name": "Inscriptions correspondances",
+  "description": "A script to send emails for the 'Correspodances mathématiques.",
+  "image": "heroku/python",
+  "repository": "https://github.com/HadrienRenaud/tfjm-inscription",
+  "keywords": ["python", "csv", "mail"],
+  "addons": [],
+  "env": {},
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "python3 -m unittest tests/*.py"
+      }
     }
-  ]
+  }
 }
