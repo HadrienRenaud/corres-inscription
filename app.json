@@ -1,0 +1,17 @@
+{
+  "name": "tfjm-inscription",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python-3.6.6"
+    }
+  ]
+}
