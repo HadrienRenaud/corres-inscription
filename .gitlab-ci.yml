@@ -1,0 +1,7 @@
+stages:
+  - test
+
+test:
+  stage: test
+  image: python:3.7-stretch
+  script: "python3 -m unittest tests/*.py"
