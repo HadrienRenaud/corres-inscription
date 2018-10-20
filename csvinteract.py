@@ -1,27 +1,28 @@
 import csv
 from typing import List
 
-__all__ = ["extract", "ConversionError"]
-
 
 class ConversionError(Exception):
     """Base conversion error. Should never happen."""
     pass
 
 
-def isnumeric(x: str) -> bool:
+def _isnumeric(x: str) -> bool:
     """Check if a string can be converted into a float/int."""
-    return x.replace('.', '', 1).isdigit()
+    try:
+        _ = float(x)
+    except ValueError:
+        return False
+    return True
 
 
-def parse_cell(content: str):
+def _parse_cell(content: str):
     """convert a string into the best format possible."""
-    if isnumeric(content):
+    if _isnumeric(content):
         try:
             content = float(content)
-        except TypeError as e:
+        except ValueError as e:
             raise ConversionError from e
-        print(content)
         if int(content) == content:
             return content
         return content
@@ -36,4 +37,4 @@ def extract(file: str) -> List[List]:
         reader = csv.reader(opened_file, delimiter=",", quotechar='"')
         for row in reader:
             res.append(row)
-    return [[parse_cell(cell) for cell in row] for row in res]
+    return [[_parse_cell(cell) for cell in row] for row in res]
