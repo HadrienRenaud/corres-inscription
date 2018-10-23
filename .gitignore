@@ -6,7 +6,8 @@
 ### Local #
 ###########
 
-Scenarios_display.html
+*.csv
+**/*.csv
 config.py
 *.xlsx
 

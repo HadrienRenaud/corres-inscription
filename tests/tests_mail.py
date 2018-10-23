@@ -31,3 +31,7 @@ class SendMailTests(unittest.TestCase):
         mock_msg.set_content.assert_called_with(mock.sentinel.content)
         mock_msg.__setitem__.assert_any_call("To", mock.sentinel.receiver)
         mock_msg.__setitem__.assert_any_call("From", mock.sentinel.sender)
+
+
+if __name__ == '__main__':
+    unittest.main()

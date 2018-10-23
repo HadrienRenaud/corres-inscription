@@ -84,16 +84,20 @@ class CSVExtractTest(unittest.TestCase):
         self.assertEqual(csv_extracted, expected_value)
 
     def test_with_text(self):
-        expected_value = [['a', 'b'], ['c', 'd']]
-        value_called = [','.join(row) for row in expected_value]
+        expected_value = ([['a', 'b'], ['c', 'd']], ["cat1", 'cat2'])
+        value_called = ['cat1,cat2', 'a,b', 'c,d']
         self.meta_test(value_called, expected_value)
 
     def test_with_text_and_int(self):
-        expected_value = [[0, 'b'], [1, 'd']]
-        value_called = ["0,b", "1,d"]
+        expected_value = [[0, 'b'], [1, 'd']], ["cat1", 'cat2']
+        value_called = ['cat1,cat2', "0,b", "1,d"]
         self.meta_test(value_called, expected_value)
 
     def test_with_float(self):
-        expected_value = [[0.5, 'b'], [1, 'd']]
-        value_called = ["0.5,b", "1,d"]
+        expected_value = [[0.5, 'b'], [1, 'd']], ["cat1", 'cat2']
+        value_called = ['cat1,cat2', "0.5,b", "1,d"]
         self.meta_test(value_called, expected_value)
+
+
+if __name__ == '__main__':
+    unittest.main()

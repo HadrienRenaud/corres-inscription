@@ -1,0 +1,15 @@
+{% set opp = teams.get_by_id(team.id_opp) %}
+From: tt247463@gmail.com
+To: {{ team.mail }}
+Subject: Confirmation d'inscription
+
+Content:
+Bonjour {{ team.name }},
+Ceci est un email de test.
+Je peux vous annoncer que votre équipe opposante est : {{ opp.name }} ({{ opp.mail }}).
+
+Merci,
+
+Hadrien
+
+
