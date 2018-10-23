@@ -20,7 +20,7 @@ class SendMailTests(unittest.TestCase):
         mock_email_message.return_value = mock_msg
 
         # Execution
-        mail.send(mock.sentinel.content, mock.sentinel.sender,
+        mail.send(True, "content", mock.sentinel.sender,
                   mock.sentinel.receiver)
 
         # Verification
@@ -28,7 +28,7 @@ class SendMailTests(unittest.TestCase):
         # mock_smtp.__enter__.assert_called_once()
         mock_smtp.assert_called_once()
         mock_email_message.assert_called_once()
-        mock_msg.set_content.assert_called_with(mock.sentinel.content)
+        mock_msg.set_content.assert_called_with("content")
         mock_msg.__setitem__.assert_any_call("To", mock.sentinel.receiver)
         mock_msg.__setitem__.assert_any_call("From", mock.sentinel.sender)
 
